@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy your Gradle project files
 COPY build.gradle settings.gradle /app/
 COPY src /app/src
-ENV PATH=$PATH:/usr/local/gradle/bin
+ENV PATH=$PATH:/etc/profile.d/gradle.sh
 
 
 # Set Gradle environment variable
