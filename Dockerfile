@@ -8,6 +8,8 @@ WORKDIR /app
 COPY build.gradle settings.gradle /app/
 COPY src /app/src
 
+RUN yum install -y epel-release && \
+    yum install -y gradle
 # Build your Gradle project
 RUN gradle build
 
