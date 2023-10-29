@@ -8,9 +8,9 @@ WORKDIR /app
 COPY build.gradle settings.gradle /app/
 COPY src /app/src
 
-RUN dnf install gradle
+
 # Build your Gradle project
-RUN gradle build
+RUN gradle clean build
 
 # Expose the port(s) your application listens on
 EXPOSE 8087
