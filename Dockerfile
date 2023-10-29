@@ -8,13 +8,10 @@ WORKDIR /app
 COPY build.gradle settings.gradle /app/
 COPY src /app/src
 
-RUN mkdir /opt/gradle && \
-    curl -L https://services.gradle.org/distributions/gradle-7.0-bin.zip -o /opt/gradle/gradle.zip && \
-    unzip /opt/gradle/gradle.zip -d /opt/gradle && \
-    rm /opt/gradle/gradle.zip
+
 
 # Set Gradle environment variable
-ENV PATH=$PATH:/opt/gradle/gradle-7.0/bin
+
 # Build your Gradle project
 RUN gradle clean build
 
