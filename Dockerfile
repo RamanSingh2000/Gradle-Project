@@ -13,7 +13,7 @@ COPY src /app/src
 # Set Gradle environment variable
 
 # Build your Gradle project
-RUN gradle clean build
+RUN gradle build
 
 # Expose the port(s) your application listens on
 EXPOSE 8087
