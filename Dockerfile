@@ -1,23 +1,14 @@
-# Use an official OpenJDK image as the base image
-FROM openjdk:8
-
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy your Gradle project files
-COPY build.gradle settings.gradle /app/
-COPY src /app/src
 FROM gradle:4.7.0-jdk8-alpine AS build
+COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN gradle build --no-daemon 
 
+FROM openjdk:8-jre-slim
 
+EXPOSE 8080
 
-# Set Gradle environment variable
+RUN mkdir /app
 
-# Build your Gradle project
-RUN gradle build
+COPY --from=build /home/gradle/src/build/libs/*.jar /app/spring-boot-application.jar
 
-# Expose the port(s) your application listens on
-EXPOSE 8087
-
-# Define the entry point to start your application
-CMD ["java", "-jar", "build/libs/simple-gradle-java-app.jar"]
+ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/spring-boot-application.jar"]
