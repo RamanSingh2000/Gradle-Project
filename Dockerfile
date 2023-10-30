@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy your Gradle project files
 COPY build.gradle settings.gradle /app/
 COPY src /app/src
+FROM gradle:4.7.0-jdk8-alpine AS build
 
-FROM gradle:latest AS BUILD
 
 
 # Set Gradle environment variable
