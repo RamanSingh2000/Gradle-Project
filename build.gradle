@@ -5,7 +5,8 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * User Manual available at https://docs.gradle.org/6.2.2/userguide/tutorial_java_projects.html
  */
-
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 plugins {
     // Apply the java plugin to add support for Java
     id 'java'
