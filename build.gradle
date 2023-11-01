@@ -30,7 +30,14 @@ dependencies {
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
 }
-
+jar {  
+    manifest {  
+        attributes(  
+   
+                'Main-Class': 'simple.gradle.java.app.App'  
+        )  
+    }  
+}  
 application {
     // Define the main class for the application.
     mainClassName = 'simple.gradle.java.app.App'
