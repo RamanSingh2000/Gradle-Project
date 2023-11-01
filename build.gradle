@@ -13,11 +13,8 @@ plugins {
     // Apply the application plugin to add support for building a CLI application.
     id 'application'
 }
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(1.8)
-    }
-}
+sourceCompatibility = JavaLanguageVersion.of(JavaLanguageVersion.VERSION_1_8)
+targetCompatibility = JavaLanguageVersion.of(JavaLanguageVersion.VERSION_1_8)
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
