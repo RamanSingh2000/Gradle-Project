@@ -13,7 +13,7 @@ plugins {
     // Apply the application plugin to add support for building a CLI application.
     id 'application'
 }
- mainClassName = 'simple.gradle.java.app.App
+ mainClassName = 'src.main.java.simple.gradle.java.app.App'
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
@@ -34,13 +34,13 @@ war {
     manifest {  
         attributes(  
    
-                'Main-Class': 'simple.gradle.java.app.App'  
+                'Main-Class': 'src.main.java.simple.gradle.java.app.App'  
         )  
     }  
 }  
 application {
     // Define the main class for the application.
-    mainClassName = 'simple.gradle.java.app.App'
+    mainClassName = 'src.main.java.simple.gradle.java.app.App'
 }
 
 test {
